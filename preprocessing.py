@@ -35,9 +35,14 @@ def string_to_list(string_list):
 		return string_list
 
 	if len(string_list) > 1:
+		print(string_list)
+
 		string_list = string_list[:1]
 		string_list[0] = string_list[0][:-1]
-		string_list[1] = string_list[1][1:] 
+		for i in range(len(string_list)):
+			string_list[i] = string_list[i][1:-1]
+		# string_list[1] = string_list[1][1:] 
+		print(string_list)
 
 data["Reviews"] = data["Reviews"].apply(string_to_list)
 
@@ -47,7 +52,7 @@ data["Reviews"] = data["Reviews"].apply(string_to_list)
 # for i in range(len(data)):
 # 	data["Reviews"][i] = data["Reviews"][i][1:-1]
 
-print(data["Reviews"].head(3)[0])
+# print(data["Reviews"].head(3)[0])
 
 
 
