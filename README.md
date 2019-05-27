@@ -4,7 +4,9 @@ The focus of this project is on the aspect aggregation and aspect term extractio
 ***
 
 # Libraries needed for FYP2
-1. Aspect term extraction
+(Do not worry about the installation of these libraries as there would be a script to complete for you!)
+
+### Aspect term extraction
   - os
   - numpy
   - sklearn
@@ -13,7 +15,7 @@ The focus of this project is on the aspect aggregation and aspect term extractio
   - sys
   - logging
 
-2. Aspect aggregation
+### Aspect aggregation
   - os
   - numpy
   - sklearn
@@ -29,13 +31,13 @@ The focus of this project is on the aspect aggregation and aspect term extractio
   - gensim
   - re
 
-3. Word Embedding
+### Word Embedding
   - AmazonWE (http://sentic.net/AmazonWE.zip)
   - GoogleNews (https://drive.google.com/file/d/0B7XkCwpI5KDYNlNUTTlSS21pQmM/edit?usp=sharing)
   - Glove (http://nlp.stanford.edu/data/glove.6B.zip, http://nlp.stanford.edu/data/glove.840B.300d.zip)
   - Fasttext Wiki (https://dl.fbaipublicfiles.com/fasttext/vectors-english/crawl-300d-2M.vec.zip)
 
-4. UI
+### UI
   - json
   - lxml
   - npm (https://nodejs.org/en/download/)*
@@ -55,11 +57,15 @@ Make sure your python is using the Anaconda path. You could check this by issue 
 `which python`
 
 Example output:
-![alt text](https://github.com/sherman2zhiwei/FIT3162---Zhiwei-and-Friends/images/check_python_path.png
+![alt text](https://github.com/sherman2zhiwei/FIT3162---Zhiwei-and-Friends/images/check_python_path.png "Check python file")
 
 UI preferred browser:
 - Google Chrome
 
+Preferred OS:
+- Unix-based (As the probability that you might encounter errors/bugs is relatively lower than other OS in this project.)
+
+### IMPORTANT! INSTALL THIS BEFORE PROCEEDING TO THE NEXT SECTION!
 How to install npm on Windows:
 - https://www.guru99.com/download-install-node-js.html
 
@@ -69,9 +75,12 @@ How to install npm on MacOS:
 ***
 
 # Setup
+After the preliminary check is finished, we can start installing all the modules/libraries required. 
 Here, we wrote a bash script to facilitate you for the setup of all necessary libraries required. To run it, please issue this to your terminal:
 
 `./setup_all.sh`
+
+(It will take some time as some of the files needed have considerably big capacity - up to 5 GB)
 
 If you encounter any file permission problem from stopping you executing the bash script, please issue this to your terminal:
 
@@ -96,10 +105,6 @@ After the steps above are done, the following instruction is for you to start th
 Make sure port 5000, 5001 and 8080 are not in use. Otherwise, you might encounter issues of having busy ports. To kill those ports which are in use:
 
 `kill $(lsof -t -i :YOUR_PORT_NUMBER)`
- 
-***
-# Simple User Guide
-Link: simple_user_guide.pdf
 
 ***
 
