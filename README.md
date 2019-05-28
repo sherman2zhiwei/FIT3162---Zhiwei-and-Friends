@@ -152,6 +152,13 @@ import ntlk
 nltk.download('submodule_name')
 ```
 
+- Running model training file (mostly `.py`):
+```python
+# Uncomment this line if you are using Windows
+os.environ['KMP_DUPLICATE_LIB_OK']='True'
+```
+
+***
 # Contacts
 For more information about other issues you have faced, please contact us through e-mails:
 - khoo0003@student.monash.edu (KZ)
