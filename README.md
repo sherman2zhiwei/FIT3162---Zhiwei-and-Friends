@@ -68,7 +68,7 @@ Make sure your python is using the Anaconda path. You could check this by issue 
 
 Example output:
 
-![alt text](https://github.com/sherman2zhiwei/FIT3162---Zhiwei-and-Friends/tree/master/images/check_python_path.png)
+![Optional Text](./images/check_python_path.png)
 
 UI preferred browser:
 - Google Chrome
@@ -131,6 +131,12 @@ kill $(lsof -t -i :YOUR_PORT_NUMBER)
 ```
 
 Also, all these steps have to end with Step 3.3. (![#f03c15](https://placehold.it/15/f03c15/000000?text=+) ***THE ORDER IS IMPORTANT!***)
+
+Example output:
+![Optional Text](./images/ui_example1.png)
+![Optional Text](./images/ui_example2.png)
+![Optional Text](./images/ui_example3.png)
+![Optional Text](./images/ui_example4.png)
 
 ***
 
