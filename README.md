@@ -64,7 +64,9 @@ Given a predefined set of aspect categories (e.g., price, food), identify the as
 # Step 1: Preliminary Check
 Make sure your python is using the Anaconda path. You could check this by issue the command below to your terminal
 
-`which python`
+```
+which python
+```
 
 Example output:
 
@@ -105,7 +107,7 @@ chmod +x setup_all.sh
 
 # Step 3: User Interface (UI)
 The UI and its functionalities are created and connected using NodeJS framework and Python (Flask, Keras and Tensorflow). 
-In order to let the users have a better experience with our project, we created 2 API links (one for Keras pre-trained model, another one for Tensorflow pre-trained model) hosted by 2 local servers to reduce the model loading time.
+In order to let the users have a better experience with our project, we created 2 API links (one for pre-trained Keras model, another one for pre-trained Tensorflow model) hosted by 2 local servers to reduce the model loading time.
 Therefore, there would be 3 terminals required for running the UI as the last one would act as both the main server and the web server.
 
 ### Step 3.1: type command below in Terminal 1:
