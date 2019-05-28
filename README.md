@@ -64,7 +64,9 @@ Given a predefined set of aspect categories (e.g., price, food), identify the as
 # Step 1: Preliminary Check
 Make sure your python is using the Anaconda path. You could check this by issue the command below to your terminal
 
-`which python`
+```
+which python
+```
 
 Example output:
 
