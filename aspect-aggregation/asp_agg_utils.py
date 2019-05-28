@@ -48,6 +48,12 @@ from keras.preprocessing.text import text_to_word_sequence
 """
 
 def _readXML(filename):
+    """
+    This function is to read SemEval Dataset in XML format. Here, we only 7 columns, which are:
+    ['review', 'term', 'termPolarity', 'startIndex', 'endIndex','aspect', 'aspectPolarity']
+    :arg {filename} - the dataset file (e.g. "Restaurant_Train.xml")
+    :return - pandas dataframe
+    """
     table = []
     row = [np.NaN] * 7
     
@@ -82,6 +88,12 @@ def _readXML(filename):
     return data
     
 def _add6PosFeautures(sentences, max_sent_len = 65):
+    """
+    This function is specially made for add 6 POS tag features for the model we have trained.
+    :arg {sentences} - list of sentences
+    :arg {max_sent_len} - the maximum sentence length (by default it would be 65)
+    :return - pos features for given list of sentences
+    """
     le = LabelEncoder()
     pos_tags = ["CC","NN","JJ","VB","RB","IN"]
     le.fit(pos_tags)
@@ -103,15 +115,36 @@ def _add6PosFeautures(sentences, max_sent_len = 65):
 
 # Flatten list of list
 def _flatten(l):
+    """
+    This function will flatten a list of list to a list. (e.g. [[1],[2]] -> [1, 2])
+    :arg {l} - a list of list
+    :return - flattened list
+    """
     return list(itertools.chain.from_iterable(l))
 
 def _oneHotVectorize(df, asp_list, mlb, le):
+    """
+    This function acts as a vectorizer that turns a list of aspects into one-hot vector.
+    However, it is modified to accommodate a multilabel pattern.
+    :arg {df} - a dataframe (in this case, it would be our dataset)
+    :arg {asp_list} - a unique aspect list (["service", "food", "price", "ambience", "anecdotes/miscellaneous"])
+    :arg {mlb} - a multilabel binarizer (from module "sklearn")
+    :arg {le} - a label encoder (from module "sklearn")
+    :return - processed dataframe
+    """
     df = df.apply(le.transform)
     df = mlb.fit_transform(df)
     return df
 
 def _performance_measure(model, data, label=None):
-
+    """
+    This function is used to measure the model performance (Accuracy, Precision, Recall and F1) given the data and labels.
+    Since the prediction made by the model is a list of list which consists of probabilities, a 0.175 threshold is set to extract labels.
+    :arg {model} - a trained Keras model
+    :arg {data} - the input for model
+    :arg {label} - the label for the input 
+    :return - None
+    """
     preds = model.predict(data)
 
     processed_preds = []
@@ -119,6 +152,8 @@ def _performance_measure(model, data, label=None):
         pred = list(map(lambda val: 1 if val > 0.175 else 0, preds[i]))
         processed_preds.append(pred)
         
+    # return the prediction if no label is provided.
+    # as this would be in the case where users just want to see the output of model given their inputs 
     if label is None:
         return processed_preds
 
@@ -153,6 +188,19 @@ def _performance_measure(model, data, label=None):
     print("Accuracy: " + str(round(acc, 4)))
 
 def _clean_text(text, stopwords=set(stopwords.words("english"))): #, lemmatizer=WordNetLemmatizer()):
+    """
+    This function is used for the preprocessing step, which will
+    - convert text to lowercase
+    - remove quotations surrounding the word (e.g. 'perks' -> perks)
+    - handle some contraction of words (e.g. he's -> he is, can't -> cannot)
+    - remove multiple consecutive spaces
+    - remove the space that starts or ends in the sentence
+    - remove stopwords
+    (Note: the lemmatization has been done for this and we found that it did not provide a better result)
+    :arg {text} - a string (sentence)
+    :arg {stopwords} - a set of words 
+    :return - preprocessed string
+    """
     text = text.lower()
     text = re.sub(r"\'(\w*)\'", r"\1", text)
     text = re.sub(r"(he|she|it)\'s", r"\1 is", text)

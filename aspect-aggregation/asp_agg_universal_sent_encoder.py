@@ -62,7 +62,14 @@ from gensim.scripts.glove2word2vec import glove2word2vec
 """
 
 def _performance_measure(model, data, label=None):
-
+    """
+    This function is similar to the performance measure in asp_agg_utils.py 
+    but there is a difference about how the model can be loaded.
+    :arg {model} - a trained Keras model
+    :arg {data} - the input for model
+    :arg {label} - the label for the input 
+    :return - None
+    """
     with tf.Session() as session:
         K.set_session(session)
         session.run(tf.global_variables_initializer())
@@ -167,6 +174,8 @@ if __name__ == '__main__':
     mlb = MultiLabelBinarizer(classes=[i for i in range(NUM_CLASSES)])
     le = LabelEncoder()
     le.fit(unique_asp)
+    
+    # Process labels into list of 1s and 0s
     y_train = _oneHotVectorize(y_train, unique_asp, mlb, le)
     y_val = _oneHotVectorize(y_val, unique_asp, mlb, le)
     y_test = _oneHotVectorize(y_test, unique_asp, mlb, le)
@@ -192,6 +201,7 @@ if __name__ == '__main__':
         embed = hub.Module(module_url)
         EMBED_SIZE = 512
 
+        # Prepare a function for keras lambda layer to map the input to universal sentence encoder
         def UniversalEmbedding(x):
             return embed(tf.squeeze(tf.cast(x, tf.string)), signature="default", as_dict=True)["default"]
 

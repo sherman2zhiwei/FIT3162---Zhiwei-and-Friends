@@ -106,6 +106,8 @@ if __name__ == '__main__':
     mlb = MultiLabelBinarizer(classes=[i for i in range(NUM_CLASSES)])
     le = LabelEncoder()
     le.fit(unique_asp)
+    
+    # Process labels into list of 1s and 0s
     y_train = _oneHotVectorize(y_train, unique_asp, mlb, le)
     y_val = _oneHotVectorize(y_val, unique_asp, mlb, le)
     y_test = _oneHotVectorize(y_test, unique_asp, mlb, le)

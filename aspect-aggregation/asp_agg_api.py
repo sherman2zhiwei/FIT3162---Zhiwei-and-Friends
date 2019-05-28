@@ -18,6 +18,10 @@ from sklearn.preprocessing import LabelEncoder
 # initialize our Flask application and the Keras model
 app = flask.Flask(__name__)
 def init():
+	"""
+	This function is to load the trained Keras model.
+	:return - None
+	"""
     global model,graph
     # load the pre-trained Keras model
     model = load_model('../SavedModels/googlenews_asp_agg_model.h5')
@@ -25,12 +29,21 @@ def init():
 
 # Getting Parameters
 def getParameters():
+	"""
+	This function is to get the parameter(s) from request arguments (e.g. value of param in "http://www.example.com/?param=this is the input")
+	:return - parameter(s)
+	"""
     parameters = []
     parameters.append(flask.request.args.get('sentence'))
     return parameters
 
 # Cross origin support
 def sendResponse(responseObj):
+	"""
+	This function is to send the response packet to the local host server.
+	:arg {responseObj} - unstructured response object
+	:return - response packet
+	"""
     response = flask.jsonify(responseObj)
     response.headers.add('Access-Control-Allow-Origin', '*')
     response.headers.add('Access-Control-Allow-Methods', 'GET')
@@ -41,6 +54,10 @@ def sendResponse(responseObj):
 # API for prediction
 @app.route("/predict", methods=["GET"])
 def predict():
+	"""
+	This function is the one to allow users to predict data through trained model. It will put it on hosted server's webpage
+	:return - output in json
+	"""
 	# Load the saved tokenizer
 	with open('../tokenizer.pickle', 'rb') as handle:
 	    tokenizer = pickle.load(handle)
