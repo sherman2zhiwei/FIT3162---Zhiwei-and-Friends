@@ -121,4 +121,4 @@ if __name__ == "__main__":
     print("* Loading Tensorflow model and Flask starting server...please wait until server has fully started")
     init()
     print("* API for Aspect Term Extraction Model is successfully set up!")
-    app.run(threaded=True, port=5001)
+    app.run(host="0.0.0.0", threaded=True, port=5001)
