@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<sentences>
+    <sentence id="3">
+        <text>I hate that waiter.</text>
+        <aspectTerms>
+            <aspectTerm term="waiter" polarity="negative" from="12" to="18"/>
+        </aspectTerms>
+        <aspectCategories>
+            <aspectCategory category="service" polarity="negative"/>
+        </aspectCategories>
+    </sentence>
+    <sentence id="4">
+        <text>The fish and chips is so delicious.</text>
+        <aspectTerms>
+            <aspectTerm term="fish and chips" polarity="positive" from="4" to="18"/>
+        </aspectTerms>
+        <aspectCategories>
+            <aspectCategory category="food" polarity="positive"/>
+        </aspectCategories>
+    </sentence>
+</sentences>
