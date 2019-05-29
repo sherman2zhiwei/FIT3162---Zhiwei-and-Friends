@@ -83,8 +83,8 @@ def _readXML(filename):
 
     dfcols = ['review', 'term', 'termPolarity', 'startIndex', 'endIndex','aspect', 'aspectPolarity']
     data = pd.DataFrame(table, columns=dfcols)
-    data["review"] = data["review"].str.replace("-", " ")
-    data["review"] = data["review"].str.replace("/", " ")
+    data["review"] = data["review"].str.replace("-", " ") # remove hyphen
+    data["review"] = data["review"].str.replace("/", " ") # remove slash
     return data
     
 def _add6PosFeautures(sentences, max_sent_len = 65):

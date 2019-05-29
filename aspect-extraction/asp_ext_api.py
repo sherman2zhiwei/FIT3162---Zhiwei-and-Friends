@@ -93,24 +93,24 @@ def predict():
     This function is the one to allow users to predict data through trained model. It will put it on hosted server's webpage
     :return - output in json
     """
-	parameters = getParameters()
-	input_sent = np.asarray(parameters).reshape(1)[0]
+    parameters = getParameters()
+    input_sent = np.asarray(parameters).reshape(1)[0]
 
-	input_sent = input_sent.strip().split(" ")
+    input_sent = input_sent.strip().split(" ")
 
-	# Prediction
-	with graph.as_default():
-		prediction = model.predict(input_sent)
+    # Prediction
+    with graph.as_default():
+    	prediction = model.predict(input_sent)
 
-	# Map prediction tags to sentence in order to get the terms
-	terms = get_terms_from_IOBA(input_sent, prediction)
-	
-	# When terms is empty string, it indicates there is no term found. 
-	# Set it to None
-	if terms == "":
-		terms = None
-		
-	return sendResponse({"terms": terms})
+    # Map prediction tags to sentence in order to get the terms
+    terms = get_terms_from_IOBA(input_sent, prediction)
+
+    # When terms is empty string, it indicates there is no term found. 
+    # Set it to None
+    if terms == "":
+    	terms = None
+    	
+    return sendResponse({"terms": terms})
 
 # if this is the main thread of execution first load the model and then start the server
 if __name__ == "__main__":
