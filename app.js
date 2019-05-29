@@ -14,11 +14,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //set up server with port 8080
 var server=http.createServer(app).listen(8080, function() {
+            console.log('* Web Server is successfully set up!')
             console.log('Listening at: http://localhost:8080');
  });
 
 socketio.listen(server).on('connection', function (socket) {
     
+    console.log('* User connected!')
     // Listener to receive sentence passed by the client
     socket.on('enterButtonClicked', function(sentence){
         

@@ -6,7 +6,10 @@ $(function(){
     var $inputBar = $('.form-control');
     var $aspects = $('.aspects');
     var $aspectTerms = $('.aspect-terms');
-
+    
+    // message to validate whether the user has logged on to the webpage from front end
+    console.log('* User connected!')
+    
     // Listener to detect click on enter button
     $enterButton.click(function(){
         

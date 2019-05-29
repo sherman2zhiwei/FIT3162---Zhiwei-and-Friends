@@ -65,6 +65,9 @@ def predict():
 	parameters = getParameters()
 	input_sent = np.asarray(parameters).reshape(1)
 
+	# Message to validate whether the sentence is received
+	print("Received review: ", input_sent)
+
 	# Convert input to sequence
 	MAX_SENT_LEN = 65
 	# input_sent = "The food is cheap and the service is nice."
@@ -95,4 +98,5 @@ def predict():
 if __name__ == "__main__":
     print("* Loading Keras model and Flask starting server...please wait until server has fully started")
     init()
+    print("* API for Aspect Aggregation Model is successfully set up!")
     app.run(threaded=True, port=5000)
