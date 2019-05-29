@@ -99,4 +99,4 @@ if __name__ == "__main__":
     print("* Loading Keras model and Flask starting server...please wait until server has fully started")
     init()
     print("* API for Aspect Aggregation Model is successfully set up!")
-    app.run(threaded=True, port=5000)
+    app.run(host="0.0.0.0", threaded=True, port=5000)
