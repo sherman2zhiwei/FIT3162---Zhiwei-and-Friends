@@ -122,12 +122,11 @@ def _flatten(l):
     """
     return list(itertools.chain.from_iterable(l))
 
-def _oneHotVectorize(df, asp_list, mlb, le):
+def _oneHotVectorize(df, mlb, le):
     """
     This function acts as a vectorizer that turns a list of aspects into one-hot vector.
     However, it is modified to accommodate a multilabel pattern.
     :arg {df} - a dataframe (in this case, it would be our dataset)
-    :arg {asp_list} - a unique aspect list (["service", "food", "price", "ambience", "anecdotes/miscellaneous"])
     :arg {mlb} - a multilabel binarizer (from module "sklearn")
     :arg {le} - a label encoder (from module "sklearn")
     :return - processed dataframe
