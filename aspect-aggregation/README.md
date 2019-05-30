@@ -32,7 +32,7 @@ Change the name of model if you want to skip the training process (the model nam
   nn_model_file = nn_model_parent_dir + "model_name.h5"
 ```
 
-and also uncomment one of these according to the chosen model:
+and also uncomment one of these blocks according to the chosen model:
 
 ```python
   # Google
