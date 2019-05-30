@@ -27,6 +27,7 @@ import pickle
 from sklearn.preprocessing import MultiLabelBinarizer, LabelEncoder
 import xml.etree.ElementTree as et
 from pathlib import Path
+from time import time
 from asp_agg_utils import _readXML, _add6PosFeautures, _flatten, _oneHotVectorize, _performance_measure, _clean_text
 
 # Tensorflow
@@ -218,6 +219,9 @@ if __name__ == '__main__':
         """
 
         print(">>> Bulding Model")
+        starttime = time() # start timer
+        print("Start Time: ", starttime)
+
         NUM_FEATURE = 306
         FILTER_SIZE = [2, 3]
         NUM_FILTERS = [100, 50]
@@ -269,7 +273,7 @@ if __name__ == '__main__':
                             callbacks=callbacks,
                             # validation_split=0.1
                             validation_data=([x_val, pos_val], y_val))
-
+        print("Time used: ", time()-starttime)
         print(">>> Saving NN Model")
         model.save(nn_model_file)
         print("NN Model: Saved!")
