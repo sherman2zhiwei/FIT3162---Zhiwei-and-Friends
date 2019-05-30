@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<sentences>
+    <sentence id="1">
+        <text>The food is nice!</text>
+        <aspectTerms>
+            <aspectTerm term="food" polarity="positive" from="4" to="8"/>
+        </aspectTerms>
+        <aspectCategories>
+            <aspectCategory category="food" polarity="positive"/>
+        </aspectCategories>
+    </sentence>
+    <sentence id="2">
+        <text>It would be better if there are some peppers on it.</text>
+        <aspectTerms>
+            <aspectTerm term="peppers" polarity="neutral" from="37" to="44"/>
+        </aspectTerms>
+        <aspectCategories>
+            <aspectCategory category="food" polarity="neutral"/>
+        </aspectCategories>
+    </sentence>
+</sentences>
