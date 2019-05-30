@@ -5,8 +5,6 @@ The model training files are:
 - asp_agg_universal_sent_encoder.py
 - basic_classifier.ipynb 
 
-***
-
 ## To train these model, please issue this:
 ### Python File (.py)
 
