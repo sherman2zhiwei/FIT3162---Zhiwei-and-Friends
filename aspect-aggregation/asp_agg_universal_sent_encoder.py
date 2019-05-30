@@ -187,52 +187,47 @@ if __name__ == '__main__':
 
     use_model_parent_dir = "../SavedModels/"
     use_model_file = use_model_parent_dir + "use_asp_agg.h5"
-    isUSEModelExist = Path(use_model_file).is_file()
-    print(">>> Check whether the network model exists")
 
-    if isUSEModelExist:
-        print("Model exists...")
-    else:
-        print("Model not found...")
-        print(">>> Getting universal sentence encoder")
-        # Import the Universal Sentence Encoder's TF Hub module
-        module_url = "https://tfhub.dev/google/universal-sentence-encoder/2" # DAN
-        # module_url = "https://tfhub.dev/google/universal-sentence-encoder-large/3" #Transformer Model
-        embed = hub.Module(module_url)
-        EMBED_SIZE = 512
+    print(">>> Getting universal sentence encoder")
+    print("(It might take some time...)")
+    # Import the Universal Sentence Encoder's TF Hub module
+    module_url = "https://tfhub.dev/google/universal-sentence-encoder/2" # DAN
+    # module_url = "https://tfhub.dev/google/universal-sentence-encoder-large/3" #Transformer Model
+    embed = hub.Module(module_url)
+    EMBED_SIZE = 512
 
-        # Prepare a function for keras lambda layer to map the input to universal sentence encoder
-        def UniversalEmbedding(x):
-            return embed(tf.squeeze(tf.cast(x, tf.string)), signature="default", as_dict=True)["default"]
+    # Prepare a function for keras lambda layer to map the input to universal sentence encoder
+    def UniversalEmbedding(x):
+        return embed(tf.squeeze(tf.cast(x, tf.string)), signature="default", as_dict=True)["default"]
 
-        sents = Input((1,), dtype=tf.string)
-        emb_layer = Lambda(UniversalEmbedding, output_shape=(EMBED_SIZE,))(sents)
-        dense1 = Dense(256)(emb_layer)
-        relu3 = Activation("relu")(dense1)
-        out = Dense(NUM_CLASSES)(relu3)
-        softmax = Activation("softmax")(out)
-        model = Model(inputs=sents, outputs=softmax) 
+    sents = Input((1,), dtype=tf.string)
+    emb_layer = Lambda(UniversalEmbedding, output_shape=(EMBED_SIZE,))(sents)
+    dense1 = Dense(256)(emb_layer)
+    relu3 = Activation("relu")(dense1)
+    out = Dense(NUM_CLASSES)(relu3)
+    softmax = Activation("softmax")(out)
+    model = Model(inputs=sents, outputs=softmax) 
 
-        # Generate model summary 
-        model.summary()
+    # Generate model summary 
+    model.summary()
 
-        # Compile the model
-        model.compile(optimizer="adam", loss="categorical_crossentropy", metrics=["acc"])
+    # Compile the model
+    model.compile(optimizer="adam", loss="categorical_crossentropy", metrics=["acc"])
 
-        # Train the model
-        with tf.Session() as session:
-            K.set_session(session)
-            session.run([tf.global_variables_initializer(), tf.tables_initializer()])
-            history = model.fit(x_train, y_train,
-                                epochs=50,
-                                batch_size=10,
-                                # callbacks=callbacks,
-                                validation_data=(x_val, y_val))
+    # Train the model
+    with tf.Session() as session:
+        K.set_session(session)
+        session.run([tf.global_variables_initializer(), tf.tables_initializer()])
+        history = model.fit(x_train, y_train,
+                            epochs=50,
+                            batch_size=10,
+                            # callbacks=callbacks,
+                            validation_data=(x_val, y_val))
 
-            use_model_file = "../SavedModels/use_asp_agg.h5"
-            print(">>> Saving NN Model")
-            model.save_weights(use_model_file)
-            print("NN Model: Saved!")
+        use_model_file = "../SavedModels/use_asp_agg.h5"
+        print(">>> Saving NN Model")
+        model.save_weights(use_model_file)
+        print("NN Model: Saved!")
 
     """
     #####################################################################################################
@@ -244,7 +239,6 @@ if __name__ == '__main__':
     |_|  |_|\___|\__,_|___/\__,_|_|  \___| |_|   \___|_|  |_| \___/|_|  |_| |_| |_|\__,_|_| |_|\___\___|
     #####################################################################################################                                                                                                     
     """
-    model = load_model(use_model_file)
 
     print(">>> Performance Measurement")
     print("Train")
