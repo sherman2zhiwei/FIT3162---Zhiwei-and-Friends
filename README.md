@@ -6,9 +6,9 @@ Given a set of sentences with pre-identified entities (e.g., restaurants), ident
 
 An aspect term names a particular aspect of the target entity. For example:
 
-"I liked the service and the staff, but not the food”. -  {service, staff, food}
+"I liked the service and the staff, but not the food”. →  {service, staff, food}
 
-“The food was nothing much, but I loved the staff” - {food, staff}
+“The food was nothing much, but I loved the staff” → {food, staff}
 
 ### What is aspect category detection/aspect aggregation?
 Given a predefined set of aspect categories (e.g., price, food), identify the aspect categories discussed in a given sentence. Aspect categories are typically coarser than the aspect term extraction, and they do not necessarily occur as terms in the given sentence. For example, given the set of aspect categories {food, service, price, ambiance, anecdotes/miscellaneous}:
