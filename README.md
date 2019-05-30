@@ -146,6 +146,10 @@ Example output:
 If you wish to run other files such as jupyter notebook (`.ipynb`), you may follow this links:
 - https://jupyter.readthedocs.io/en/latest/install.html 
 
+To play with the training process of models in this respository, please go to:
+- https://github.com/sherman2zhiwei/FIT3162---Zhiwei-and-Friends/tree/master/aspect-aggregation (aspect aggregation)
+- https://github.com/sherman2zhiwei/FIT3162---Zhiwei-and-Friends/tree/master/aspect-extraction (aspect term extraction)
+
 ### Possible problems raised by 
 - NLTK (missing submodules):
 ``` python
