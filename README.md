@@ -30,6 +30,7 @@ Given a predefined set of aspect categories (e.g., price, food), identify the as
   - time
   - sys
   - logging
+  - timeit
 
 ### Aspect aggregation
   - os
@@ -46,6 +47,7 @@ Given a predefined set of aspect categories (e.g., price, food), identify the as
   - keras
   - gensim
   - re
+  - timeit
 
 ### Word Embedding
   - AmazonWE (http://sentic.net/AmazonWE.zip)
