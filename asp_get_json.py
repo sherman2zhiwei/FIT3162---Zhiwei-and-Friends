@@ -10,6 +10,7 @@ import json
 from lxml import html
 import requests
 import sys
+import logging
 
 def main(argv):
 	# Sending request to API Link given by the server
@@ -25,6 +26,11 @@ def main(argv):
 	html_content = html_content[0].replace("\n", "")
 	result_in_json = json.loads(html_content)
 
+	# Message to validate whether this code is scraping the web content
+	if list(result_in_json.keys()) == "aspects":
+		logging.info("* Scraping content from API server for Aspect Term Extraction!")
+	else:
+		logging.info("* Scraping content from API server for Aspect Aggregation!")
 	# print results found (in this case we pass back the output to the server)
 	print(list(result_in_json.values())[0])
 

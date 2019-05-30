@@ -96,6 +96,10 @@ def predict():
     parameters = getParameters()
     input_sent = np.asarray(parameters).reshape(1)[0]
 
+    # Message to validate whether the sentence is received
+    print("Received review: ",input_sent)
+    
+    # Split sentence into words
     input_sent = input_sent.strip().split(" ")
 
     # Prediction
@@ -116,4 +120,5 @@ def predict():
 if __name__ == "__main__":
     print("* Loading Tensorflow model and Flask starting server...please wait until server has fully started")
     init()
-    app.run(threaded=True, port=5001)
+    print("* API for Aspect Term Extraction Model is successfully set up!")
+    app.run(host="0.0.0.0", threaded=True, port=5001)

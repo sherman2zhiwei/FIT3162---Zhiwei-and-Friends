@@ -176,9 +176,9 @@ if __name__ == '__main__':
     le.fit(unique_asp)
     
     # Process labels into list of 1s and 0s
-    y_train = _oneHotVectorize(y_train, unique_asp, mlb, le)
-    y_val = _oneHotVectorize(y_val, unique_asp, mlb, le)
-    y_test = _oneHotVectorize(y_test, unique_asp, mlb, le)
+    y_train = _oneHotVectorize(y_train, mlb, le)
+    y_val = _oneHotVectorize(y_val, mlb, le)
+    y_test = _oneHotVectorize(y_test, mlb, le)
     print("Shape of y_train data:", y_train.shape)
     print("Shape of y_val data:", y_val.shape)
     print("Shape of y_test data:", y_test.shape)
