@@ -10,7 +10,7 @@ import flask
 import numpy as np
 import itertools
 import tensorflow as tf
-from model.data_utils import CoNLLDataset
+from model.data_utils import GloveDataset
 from model.aspect_model import ASPECTModel
 from model.config import Config
 
