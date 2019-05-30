@@ -110,25 +110,30 @@ If you encounter any file permission problem from stopping you executing the bas
 ```
 chmod +x setup_all.sh
 ```
+***
+# Step 3: Train aspect term extraction model
+Due to some hidden issues, the model saved might not be able to work properly after passing through network. However, it has no problem when the model is trained on your own device. Please refer to this link for more information about how to train this model:
+- https://github.com/sherman2zhiwei/FIT3162---Zhiwei-and-Friends/tree/master/aspect-extraction (aspect term extraction)
+
 
 ***
 
-# Step 3: User Interface (UI)
+# Step 4: User Interface (UI)
 The UI and its functionalities are created and connected using NodeJS framework and Python (Flask, Keras and Tensorflow). 
 In order to let the users have a better experience with our project, we created 2 API links (one for pre-trained Keras model, another one for pre-trained Tensorflow model) hosted by 2 local servers to reduce the model loading time.
 Therefore, there would be 3 terminals required for running the UI as the last one would act as both the main server and the web server.
 
-### Step 3.1: type command below in Terminal 1:
+### Step 4.1: type command below in Terminal 1:
 ```
 python asp_agg_api.py (in directory "FIT3162---Zhiwei-and-Friends")
 ```
 
-### Step 3.2: type command below in Terminal 2:
+### Step 4.2: type command below in Terminal 2:
 ```
 python asp_ext_api.py (in directory "FIT3162---Zhiwei-and-Friends/aspect-extraction")
 ```
 
-### Step 3.3: type command below in Terminal 3:
+### Step 4.3: type command below in Terminal 3:
 ```
 node app.js (in directory "FIT3162---Zhiwei-and-Friends")
 ```
