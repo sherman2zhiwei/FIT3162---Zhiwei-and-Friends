@@ -10,6 +10,9 @@ pip install pathlib
 pip install nltk
 pip install keras
 pip install gensim
+pip install Flask
+pip install lxml
+pip install requests
 
 read -p "Do you want to download word embedding files? (y|n): " download_flag
 declare -i flag=$(echo $download_flag | tr -s '[:upper:]' '[:lower:]')

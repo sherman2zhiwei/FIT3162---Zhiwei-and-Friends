@@ -1,4 +1,4 @@
-from model.data_utils import CoNLLDataset
+from model.data_utils import GloveDataset
 from model.aspect_model import ASPECTModel
 from model.config import Config
 
@@ -14,9 +14,9 @@ def main():
     # model.reinitialize_weights("proj")
 
     # create datasets
-    dev   = CoNLLDataset(config.filename_dev, config.processing_word,
+    dev   = GloveDataset(config.filename_dev, config.processing_word,
                          config.processing_tag, config.max_iter)
-    train = CoNLLDataset(config.filename_train, config.processing_word,
+    train = GloveDataset(config.filename_train, config.processing_word,
                          config.processing_tag, config.max_iter)
 
     # train model

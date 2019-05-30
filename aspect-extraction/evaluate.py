@@ -1,12 +1,10 @@
-from model.data_utils import CoNLLDataset
+from model.data_utils import GloveDataset
 from model.aspect_model import ASPECTModel
 from model.config import Config
 
 
 def align_data(data):
     """Given dict with lists, creates aligned strings
-
-    Adapted from Assignment 3 of CS224N
 
     Args:
         data: (dict) data["x"] = ["I", "love", "you"]
@@ -46,6 +44,7 @@ To exit, enter 'exit'.
 You can enter a sentence like
 input> I love Paris""")
 
+    #interactive shell that predicts any input sentence and quits on command
     while True:
         try:
             # for python 2
@@ -76,7 +75,7 @@ def main():
     model.restore_session(config.dir_model)
 
     # create dataset
-    test  = CoNLLDataset(config.filename_test, config.processing_word,
+    test  = GloveDataset(config.filename_test, config.processing_word,
                          config.processing_tag, config.max_iter)
 
     # evaluate and interact
