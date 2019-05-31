@@ -178,6 +178,12 @@ os.environ['KMP_DUPLICATE_LIB_OK']='True'
 ```
 
 ***
+# Version Control & Backup Procedure
+GitHub is a platform that is made for sharing code and it has some features which does control version of source code file and does backup for the code uploaded onto their server. To view the activity of our repository, please go to `Insights` of this repository:
+
+![Optional Text](./images/github_insights.png)
+
+***
 # Contacts
 For more information about other issues you have faced, please contact us through e-mails:
 - khoo0003@student.monash.edu (KZ)
