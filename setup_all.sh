@@ -2,7 +2,7 @@
 
 echo "Downloading necessary libraries for Python ..."
 pip install numpy
-pip install sklearn
+pip install scikit-learn
 pip install tensorflow
 pip install tensorflow_hub
 pip install pickle-mixin
